@@ -35,11 +35,8 @@ backend/target/
 node_modules/
 frontend/dist/
 frontend/dist-ssr/
-frontend/*.local
-frontend/.env.local
-frontend/.env.development.local
-frontend/.env.test.local
-frontend/.env.production.local
+.env
+.env.*
 
 # npm/pnpm/yarn
 npm-debug.log*

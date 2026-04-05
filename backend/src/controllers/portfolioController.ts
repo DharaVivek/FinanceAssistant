@@ -1,8 +1,10 @@
+import { db } from '../models/localDb.js';
+
 export const getHoldings = async (req, res) => {
     try {
         const { userId } = req.params;
-        // TODO: Fetch from DB using userId
-        res.status(200).json({ success: true, data: [] });
+        const userHoldings = db.holdings[userId] || [];
+        res.status(200).json({ success: true, data: userHoldings });
     } catch (error) {
         res.status(500).json({ success: false, error: error.message });
     }
@@ -12,8 +14,15 @@ export const addHolding = async (req, res) => {
     try {
         const { userId } = req.params;
         const holdingData = req.body;
-        // TODO: Map to User and save
-        res.status(200).json({ success: true, message: "Holding added" });
+        
+        if (!db.holdings[userId]) {
+            db.holdings[userId] = [];
+        }
+        
+        const newHolding = { id: Date.now().toString(), ...holdingData };
+        db.holdings[userId].push(newHolding);
+        
+        res.status(200).json({ success: true, message: "Holding added", data: newHolding });
     } catch (error) {
         res.status(500).json({ success: false, error: error.message });
     }
@@ -22,8 +31,9 @@ export const addHolding = async (req, res) => {
 export const analyzePortfolio = async (req, res) => {
     try {
         const { userId } = req.params;
-        // TODO: Trigger PortfolioAnalysisAgent and RecommendationAgent via OrchestratorService
-        res.status(200).json({ success: true, analysis: {} });
+        // Mock analysis
+        const analysis = { status: "Demo Analysis complete" };
+        res.status(200).json({ success: true, analysis });
     } catch (error) {
         res.status(500).json({ success: false, error: error.message });
     }
