@@ -1,0 +1,52 @@
+# ========== macOS ==========
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+# ========== IDEs ==========
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ========== Java / Maven (Backend) ==========
+backend/target/
+*.class
+*.jar
+*.war
+*.nar
+*.ear
+*.log
+*.zip
+*.tar.gz
+*.rar
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# IntelliJ
+*.iml
+*.iws
+
+# ========== Node / React Vite (Frontend) ==========
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/*.local
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# npm/pnpm/yarn
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store
+
+# Log files
+*.log
