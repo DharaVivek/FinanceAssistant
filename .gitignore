@@ -32,7 +32,7 @@ backend/target/
 *.iws
 
 # ========== Node / React Vite (Frontend) ==========
-frontend/node_modules/
+node_modules/
 frontend/dist/
 frontend/dist-ssr/
 frontend/*.local
